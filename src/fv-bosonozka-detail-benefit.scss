@@ -534,49 +534,57 @@ body {
       object-fit: cover;
     }
 
-    #{ $self }__button {
+    #{ $self }__add-video {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       display: flex;
-      padding: .8rem 1.6rem;
       justify-content: center;
       align-items: center;
+      width: 100%;
+      height: 100%;
       gap: 0.4rem;
-      border-radius: 8rem;
-      background: var(--fv-pobo-dark);
-      color: var(--fv-pobo-light);
-      font-size: 1.4rem;
-      font-weight: 700;
-      line-height: 2rem;
-      text-decoration: unset;
       transition: all .3s ease-in-out;
-      text-wrap: nowrap;
 
-      @media (min-width: 768px) {
-        font-size: 1.6rem;
-        line-height: 2.4rem;
-        padding: 1.6rem 2.4rem;
-      }
-
-      &.play {
+      &::after {
+        content: '';
         padding: .8rem;
+        border-radius: 8rem;
+        background: var(--fv-pobo-dark);
+        color: var(--fv-pobo-light);
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 2rem;
+        text-decoration: unset;
+        text-wrap: nowrap;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        width: 2.4rem;
+        height: 2.4rem;
+        z-index: -1;
 
         @media (min-width: 768px) {
           font-size: 1.6rem;
           line-height: 2.4rem;
-          padding: 1.6rem 2.4rem;
+          padding: 1.6rem;
         }
+      }
 
-        .icon {
-          width: 2.4rem;
-          height: 2.4rem;
-
-          img {
-            filter: invert(1);
-          }
-        }
+      &::before {
+        content: '';
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: inline-flex;
+        height: 2.4rem;
+        width: 2.4rem;
+        mask: url(https://image.pobo.cz/images/3lz9h2lslxjt/zlh7lr6sklm97m74a7qb-md.svg) no-repeat 50% 50%;
+        z-index: 1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
 
       &:hover {
